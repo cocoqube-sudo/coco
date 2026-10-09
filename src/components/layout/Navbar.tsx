@@ -2,17 +2,27 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#063923f0] backdrop-blur-[16px]">
       <div className="flex items-center min-h-[5rem] gap-8 px-5 max-w-[76rem] mx-auto">
-        <Link href="/" className="inline-flex items-center gap-3 text-white text-decoration-none">
+        <Link href="/" className="inline-flex items-center gap-3 text-white text-decoration-none" onClick={() => setIsMenuOpen(false)}>
           <div className="w-[2.8rem] h-[2.8rem] bg-white rounded-full flex items-center justify-center p-[0.2rem]">
-             <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/cocoqube-logo.png" alt="CocoQube" width={40} height={40} className="object-contain" />
+             <Image src="/assets/cocoqube-logo.png" alt="CocoQube" width={40} height={40} className="object-contain" priority />
           </div>
           <strong className="text-[1.25rem] tracking-[0.12em] uppercase">CocoQube</strong>
         </Link>

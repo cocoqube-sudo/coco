@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <Link href="/" className="inline-flex items-center gap-3 text-white text-decoration-none">
               <div className="w-[2.8rem] h-[2.8rem] bg-white rounded-full flex items-center justify-center p-[0.2rem]">
-                <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/cocoqube-logo.png" alt="CocoQube" width={40} height={40} className="object-contain" />
+                <Image src="/assets/cocoqube-logo.png" alt="CocoQube" width={40} height={40} className="object-contain" />
               </div>
               <strong className="text-[1.25rem] tracking-[0.12em] uppercase">CocoQube</strong>
             </Link>

@@ -45,17 +45,19 @@ export default function Home() {
               
               <Image 
                 className="absolute w-[73%] -left-[8%] bottom-[12%] z-[3] drop-shadow-[0_22px_24px_rgba(0,0,0,0.28)] object-contain" 
-                src="https://cocoqube-global.febi044.chatgpt.site/assets/coco-grow-bag.png" 
+                src="/assets/coco-grow-bag.png" 
                 alt="Coco peat grow bag for greenhouse cultivation"
                 width={500}
                 height={500}
+                priority
               />
               <Image 
                 className="absolute w-[62%] -right-[2%] bottom-[7%] z-[2] drop-shadow-[0_20px_22px_rgba(0,0,0,0.25)] object-contain" 
-                src="https://cocoqube-global.febi044.chatgpt.site/assets/coco-peat-5kg-block.png" 
+                src="/assets/coco-peat-5kg-block.png" 
                 alt="Compressed 5 kg coco peat block from India"
                 width={400}
                 height={400}
+                priority
               />
             </div>
           </div>
@@ -114,7 +116,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link className="flex flex-col min-h-[25rem] bg-white border border-line rounded-[1.35rem] overflow-hidden card-hover" href="/products#coco-substrates">
               <div className="h-[17rem] bg-pale w-full overflow-hidden">
-                <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/catalog/56-5kg-coco-peat-block.png" alt="Compressed coco peat" width={400} height={300} className="w-full h-full object-cover" />
+                <Image src="/assets/catalog/56-5kg-coco-peat-block.png" alt="Compressed coco peat" width={400} height={300} className="w-full h-full object-cover" />
               </div>
               <div className="p-5 flex flex-col gap-1">
                 <small className="text-aqua font-[800] uppercase tracking-widest text-[0.8rem]">Growing media</small>
@@ -125,7 +127,7 @@ export default function Home() {
             
             <Link className="flex flex-col min-h-[25rem] bg-white border border-line rounded-[1.35rem] overflow-hidden card-hover" href="/products#grow-bags">
               <div className="h-[17rem] bg-pale w-full overflow-hidden">
-                <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/catalog/55-coco-grow-bag.png" alt="Coco peat grow bag" width={400} height={300} className="w-full h-full object-cover" />
+                <Image src="/assets/catalog/55-coco-grow-bag.png" alt="Coco peat grow bag" width={400} height={300} className="w-full h-full object-cover" />
               </div>
               <div className="p-5 flex flex-col gap-1">
                 <small className="text-aqua font-[800] uppercase tracking-widest text-[0.8rem]">Protected cultivation</small>
@@ -136,7 +138,7 @@ export default function Home() {
             
             <Link className="flex flex-col min-h-[22rem] bg-white border border-line rounded-[1.35rem] overflow-hidden card-hover" href="/products#coir-pots">
               <div className="h-[14rem] bg-pale w-full overflow-hidden">
-                <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/catalog/03-3-inch-coir-pot.png" alt="Coir pot" width={400} height={300} className="w-full h-full object-cover" />
+                <Image src="/assets/catalog/03-3-inch-coir-pot.png" alt="Coir pot" width={400} height={300} className="w-full h-full object-cover" />
               </div>
               <div className="p-5 flex flex-col gap-1">
                 <small className="text-aqua font-[800] uppercase tracking-widest text-[0.8rem]">Nursery</small>
@@ -147,7 +149,7 @@ export default function Home() {
             
             <Link className="flex flex-col min-h-[22rem] bg-white border border-line rounded-[1.35rem] overflow-hidden card-hover" href="/products#liners">
               <div className="h-[14rem] bg-pale w-full overflow-hidden">
-                <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/catalog/18-12-inch-coir-liner.png" alt="Coir basket liner" width={400} height={300} className="w-full h-full object-cover" />
+                <Image src="/assets/catalog/18-12-inch-coir-liner.png" alt="Coir basket liner" width={400} height={300} className="w-full h-full object-cover" />
               </div>
               <div className="p-5 flex flex-col gap-1">
                 <small className="text-aqua font-[800] uppercase tracking-widest text-[0.8rem]">Planters</small>
@@ -158,7 +160,7 @@ export default function Home() {
             
             <Link className="flex flex-col min-h-[22rem] bg-white border border-line rounded-[1.35rem] overflow-hidden card-hover" href="/products#mulch">
               <div className="h-[14rem] bg-pale w-full overflow-hidden">
-                <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/catalog/44-12-inch-coir-mulch-mat.png" alt="Coir mulch mat" width={400} height={300} className="w-full h-full object-cover" />
+                <Image src="/assets/catalog/44-12-inch-coir-mulch-mat.png" alt="Coir mulch mat" width={400} height={300} className="w-full h-full object-cover" />
               </div>
               <div className="p-5 flex flex-col gap-1">
                 <small className="text-aqua font-[800] uppercase tracking-widest text-[0.8rem]">Landscaping</small>
@@ -169,7 +171,7 @@ export default function Home() {
             
             <Link className="flex flex-col min-h-[22rem] bg-white border border-line rounded-[1.35rem] overflow-hidden card-hover" href="/products#support">
               <div className="h-[14rem] bg-pale w-full overflow-hidden">
-                <Image src="https://cocoqube-global.febi044.chatgpt.site/assets/catalog/37-3-foot-coco-pole.png" alt="Coco pole" width={400} height={300} className="w-full h-full object-cover" />
+                <Image src="/assets/catalog/37-3-foot-coco-pole.png" alt="Coco pole" width={400} height={300} className="w-full h-full object-cover" />
               </div>
               <div className="p-5 flex flex-col gap-1">
                 <small className="text-aqua font-[800] uppercase tracking-widest text-[0.8rem]">Plant support</small>

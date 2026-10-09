@@ -120,7 +120,7 @@ export default function Products() {
                         className="grid grid-cols-[8.5rem_1fr] min-h-[13rem] p-0 overflow-hidden text-left border border-line rounded-[1.15rem] bg-white cursor-pointer shadow-[0_10px_32px_rgba(6,57,35,0.055)] hover:-translate-y-1 hover:border-aqua transition-all group"
                       >
                         <div className="min-h-full bg-pale flex items-center justify-center">
-                          <Image src={`https://cocoqube-global.febi044.chatgpt.site${product.image}`} alt={product.name} width={150} height={200} className="w-full h-full object-cover" />
+                          <Image src={product.image} alt={product.name} width={150} height={200} className="w-full h-full object-cover" />
                         </div>
                         <div className="flex flex-col gap-[0.42rem] p-4">
                           <small className="text-aqua font-[800] uppercase tracking-[0.07em] text-[0.75rem]">{product.groupTitle}</small>
@@ -187,7 +187,7 @@ export default function Products() {
               {/* Hero */}
               <div className="flex flex-col md:flex-row gap-8 mb-10">
                 <div className="w-32 h-32 md:w-40 md:h-40 bg-pale rounded-[1.2rem] flex-shrink-0 flex items-center justify-center overflow-hidden self-start">
-                  <Image src={`https://cocoqube-global.febi044.chatgpt.site${selectedProduct.image}`} alt={selectedProduct.name} width={200} height={200} className="w-full h-full object-cover" />
+                  <Image src={selectedProduct.image} alt={selectedProduct.name} width={200} height={200} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-label-caps text-forest mb-2">{selectedProduct.groupTitle}</p>
