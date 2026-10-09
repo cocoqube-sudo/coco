@@ -223,7 +223,7 @@ export default function Products() {
                   <h3 className="text-[1.3rem] font-[700] text-forest-ink m-0">Specification framework</h3>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {selectedProduct.specs.map(([label, value]: [string, string]) => (
+                  {selectedProduct.specs.map(([label, value]: string[]) => (
                     <div key={label} className="p-4 rounded-[1.2rem] bg-[#f8faf9] border border-line/60 hover:border-forest/30 transition-colors">
                       <dt className="text-[0.75rem] uppercase tracking-wider font-[800] text-forest mb-1.5">{label}</dt>
                       <dd className="text-[0.95rem] text-forest-ink font-[600] leading-snug m-0">{value}</dd>
