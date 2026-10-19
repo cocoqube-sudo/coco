@@ -1,29 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+import SiteInteractivity from "@/components/SiteInteractivity";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  themeColor: "#063923",
 };
 
 export const metadata: Metadata = {
-  title: "Cocoqube | Sustainable Coir Solutions",
-  description: "Sustainable luxury for global horticultural markets. Crafting excellence from the heart of the tropics.",
+  title: "Coco Peat and Coir Supplier in Bengaluru | Cocoqube",
+  description: "Bengaluru supplier of coco peat and coir products for growers, nurseries, garden brands and importers, quoted by grade and spec, with export from India.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "Coco Peat and Coir Supplier in Bengaluru | Cocoqube",
+    description: "Bengaluru supplier of coco peat and coir products for growers, nurseries, garden brands and importers, quoted by grade and spec, with export from India.",
+    images: [{ url: "https://cocoqube.com/images/og/index.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Coco Peat and Coir Supplier in Bengaluru | Cocoqube",
+    description: "Bengaluru supplier of coco peat and coir products for growers, nurseries, garden brands and importers, quoted by grade and spec, with export from India.",
+    images: ["https://cocoqube.com/images/og/index.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -32,26 +39,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${playfair.variable} scroll-smooth antialiased`}
-    >
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24&display=swap"
-          rel="stylesheet"
-        />
-        <style>{`
-          .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-          }
-        `}</style>
-      </head>
+    <html lang="en">
       <body>
-        <ScrollToTop />
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
         <Navbar />
         {children}
         <Footer />
+        <SiteInteractivity />
       </body>
     </html>
   );

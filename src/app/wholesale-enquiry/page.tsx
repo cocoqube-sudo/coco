@@ -1,129 +1,31 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 
-export default function WholesaleEnquiry() {
+export const metadata: Metadata = {
+  title: "Wholesale Coir Enquiry India | Cocoqube",
+  description: "Submit an Indian wholesale enquiry for coir pots, liners, mulch discs, poles and coco peat. Share product, quantity and delivery pincode for a quote.",
+  openGraph: {
+    title: "Wholesale Coir Enquiry India | Cocoqube",
+    description: "Submit an Indian wholesale enquiry for coir pots, liners, mulch discs, poles and coco peat. Share product, quantity and delivery pincode for a quote.",
+    images: [{ url: "https://cocoqube.com/images/og/wholesale-enquiry.jpg" }],
+  },
+  alternates: { canonical: "https://cocoqube.com/wholesale-enquiry.html" },
+};
+
+const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Wholesale enquiry"}]}];
+
+const contentHtml = "\n<section class=\"page-hero\"><div class=\"container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/\">Home</a><span aria-hidden=\"true\">/</span><span aria-current=\"page\">Wholesale enquiry</span></nav><p class=\"eyebrow light\">India wholesale</p><h1>Request a relevant wholesale quotation</h1><p class=\"lede\">For nurseries, horticulture suppliers, garden businesses, landscapers and other Indian B2B buyers.</p></div></section>\n<section><div class=\"container form-layout\"><aside class=\"form-aside\"><p class=\"eyebrow\">Before you submit</p><h2>Product, quantity and destination come first</h2><ul class=\"check-list\"><li>The product and size you need</li><li>An estimated quantity</li><li>Delivery city and pincode</li><li>Intended use and required date</li></ul><p class=\"fine\" style=\"margin-top:1rem\">Standard quotes are targeted within 4 business hours once the inputs are complete.</p><p><a class=\"text-link\" href=\"/export-enquiry\">International buyer? Use the export enquiry →</a></p></aside>\n<form class=\"form-card\" data-form=\"wholesale\" novalidate=\"\"><div class=\"field-grid\"><div class=\"field\"><label for=\"f-name\">Name <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-name\" name=\"Name\" type=\"text\" required=\"\" autocomplete=\"name\"></div><div class=\"field\"><label for=\"f-company\">Company <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-company\" name=\"Company\" type=\"text\" required=\"\" autocomplete=\"organization\"></div><div class=\"field\"><label for=\"f-phone-or-whatsapp\">Phone / WhatsApp <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-phone-or-whatsapp\" name=\"Phone or WhatsApp\" type=\"text\" required=\"\" autocomplete=\"tel\"></div><div class=\"field\"><label for=\"f-business-email\">Business email</label><input id=\"f-business-email\" name=\"Business email\" type=\"email\" autocomplete=\"email\"></div><div class=\"field\"><label for=\"f-buyer-type\">Buyer type <span class=\"required\" aria-hidden=\"true\">*</span></label><select id=\"f-buyer-type\" name=\"Buyer type\" required=\"\"><option value=\"\">Select</option><option>Nursery</option><option>Garden centre or retailer</option><option>Landscaper or contractor</option><option>Horticulture supplier or dealer</option><option>Greenhouse or grower</option><option>Private-label brand</option><option>Other</option></select></div><div class=\"field\"><label for=\"f-product\">Product <span class=\"required\" aria-hidden=\"true\">*</span></label><select id=\"f-product\" name=\"Product\" required=\"\"><option value=\"\">Select</option><option>Coco peat blocks (5 kg)</option><option>Coco peat blocks (1 kg) and briquettes (650 g)</option><option>Coco husk chip blocks</option><option>Coir basket and wall liners</option><option>Coir pots and seedling cups</option><option>Hanging basket sets</option><option>Coir mulch discs</option><option>Coir support poles</option><option>Coir mats and felt</option><option>Coir propagation coins</option><option>Mixed product requirement</option></select></div><div class=\"field\"><label for=\"f-estimated-quantity\">Estimated quantity <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-estimated-quantity\" name=\"Estimated quantity\" type=\"text\" required=\"\" placeholder=\"Units, kg, tonnes or cartons\"></div><div class=\"field\"><label for=\"f-delivery-city\">Delivery city <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-delivery-city\" name=\"Delivery city\" type=\"text\" required=\"\"></div><div class=\"field\"><label for=\"f-pincode\">Pincode <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-pincode\" name=\"Pincode\" type=\"text\" required=\"\"></div><div class=\"field\"><label for=\"f-required-date\">Required date</label><input id=\"f-required-date\" name=\"Required date\" type=\"date\"></div><details class=\"more\"><summary>Add technical details (optional, speeds up the quote)</summary><div class=\"field-grid\" style=\"padding-bottom:.5rem\"><div class=\"field full\"><label for=\"f-sizes-or-grades\">Sizes or grades</label><input id=\"f-sizes-or-grades\" name=\"Sizes or grades\" type=\"text\" placeholder=\"For example 10 and 12 inch liners, or washed 5 kg blocks\"></div><div class=\"field\"><label for=\"f-packing-or-label-requirement\">Packing or label requirement</label><input id=\"f-packing-or-label-requirement\" name=\"Packing or label requirement\" type=\"text\"></div><div class=\"field\"><label for=\"f-gst-number-optional-\">GST number (optional)</label><input id=\"f-gst-number-optional-\" name=\"GST number (optional)\" type=\"text\"></div><div class=\"field\"><label for=\"f-repeat-frequency\">Repeat frequency</label><input id=\"f-repeat-frequency\" name=\"Repeat frequency\" type=\"text\" placeholder=\"One-off, monthly, seasonal\"></div><div class=\"field full\"><label for=\"f-specification-or-additional-notes\">Specification or additional notes</label><textarea id=\"f-specification-or-additional-notes\" name=\"Specification or additional notes\" placeholder=\"Frame or pot dimensions, processing, EC method, or other information\"></textarea></div></div></details></div>\n<div class=\"btn-row three\"><button class=\"button dark full\" type=\"submit\">Prepare wholesale enquiry on WhatsApp</button><button class=\"button outline full\" type=\"button\" data-action=\"email\">Send by email</button><button class=\"button outline full\" type=\"button\" data-action=\"copy\">Copy enquiry text</button></div>\n<div class=\"form-status\" role=\"status\"></div>\n<p class=\"form-note\">This website does not store your form. WhatsApp opens with your enquiry ready to review and send, or copy the text into an email. Replies follow India Standard Time (UTC+5:30).</p></form></div></section><section><div class=\"narrow article\"><p class=\"eyebrow\">What happens next</p><h2>After you send a wholesale enquiry</h2><p>We read your products, sizes, quantities and delivery pincode, ask for anything missing, and send a written quote with packing and what is included. For nurseries, garden centres and landscapers in Bengaluru, Hyderabad and across Karnataka, Andhra Pradesh and Telangana, delivery scope is confirmed per quote. See <a class=\"text-link\" href=\"/nursery-supplies\">nursery supply</a> for starting assortments, and the <a class=\"text-link\" href=\"/guide-coir-basket-liner-sizing\">liner sizing guide</a> before you choose sizes.</p></div></section>\n";
+
+export default function Page() {
   return (
-    <main>
-      {/* Page Hero */}
-      <section className="bg-forest-deep text-white py-14 md:py-24">
-        <div className="px-5 max-w-[76rem] mx-auto">
-          <div className="flex gap-2 text-[#afc7ba] text-[0.9rem] mb-5">
-            <Link href="/" className="text-white hover:underline">Home</Link>
-            <span>/</span>
-            <span>Wholesale enquiry</span>
-          </div>
-          <p className="text-label-caps text-[#b9e37f] mb-3">India wholesale</p>
-          <h1 className="text-[clamp(2.8rem,6vw,5rem)] max-w-[15ch] leading-[1.08] tracking-[-0.035em] font-[600] mb-4">
-            Request a relevant wholesale quotation.
-          </h1>
-          <p className="text-lede text-[#cce0d5] max-w-[42rem]">
-            For nurseries, horticulture suppliers, garden businesses, landscapers and other Indian B2B buyers.
-          </p>
-        </div>
-      </section>
-
-      {/* Form Section */}
-      <section className="bg-white py-16 md:py-28">
-        <div className="px-5 max-w-[76rem] mx-auto grid grid-cols-1 md:grid-cols-[0.72fr_1.28fr] gap-12 items-start">
-          
-          <aside className="md:sticky md:top-28">
-            <p className="text-label-caps text-forest mb-3">Before you submit</p>
-            <h2 className="text-headline-lg mb-6">Product, quantity and destination come first.</h2>
-            <p className="text-botanical text-[1.05rem] mb-6 font-[600]">
-              Use this form for Indian wholesale requirements. Export buyers should use the dedicated export form.
-            </p>
-            <ul className="list-none p-0 m-0 space-y-4">
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">Share the required product and size</li>
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">Give an estimated quantity</li>
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">Include delivery city and pincode</li>
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">State intended use and required date</li>
-            </ul>
-            <p className="mt-6">
-              <Link href="/export-enquiry" className="text-forest font-[600] underline hover:text-forest-ink transition-colors">
-                International buyer? Use export enquiry →
-              </Link>
-            </p>
-          </aside>
-
-          <form className="p-[clamp(1.5rem,4vw,2.8rem)] border border-line rounded-[1.5rem] bg-white shadow-[0_18px_60px_rgba(6,57,35,0.08)]">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-name" className="text-forest-ink font-[700] text-[0.9rem]">Full name <span className="text-[#a33b2d]">*</span></label>
-                <input id="w-name" name="Name" required autoComplete="name" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-company" className="text-forest-ink font-[700] text-[0.9rem]">Company <span className="text-[#a33b2d]">*</span></label>
-                <input id="w-company" name="Company" required autoComplete="organization" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-phone" className="text-forest-ink font-[700] text-[0.9rem]">Phone / WhatsApp <span className="text-[#a33b2d]">*</span></label>
-                <input id="w-phone" name="Phone or WhatsApp" required autoComplete="tel" inputMode="tel" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-email" className="text-forest-ink font-[700] text-[0.9rem]">Business email</label>
-                <input id="w-email" name="Business email" type="email" autoComplete="email" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-product" className="text-forest-ink font-[700] text-[0.9rem]">Product <span className="text-[#a33b2d]">*</span></label>
-                <select id="w-product" name="Product" required className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua">
-                  <option value="">Select</option>
-                  <option>Low EC coco peat blocks</option>
-                  <option>High EC coco peat blocks</option>
-                  <option>Coco peat grow bags</option>
-                  <option>Coco husk chip blocks</option>
-                  <option>Coir pots</option>
-                  <option>Seedling cups</option>
-                  <option>Basket liners</option>
-                  <option>Conical liners</option>
-                  <option>Wall liners</option>
-                  <option>Coir mulch mats</option>
-                  <option>Coir needle felt rolls</option>
-                  <option>Coir grow mats</option>
-                  <option>Coco poles</option>
-                  <option>Coco coins</option>
-                  <option>Coir trays</option>
-                  <option>Coir scrub pads</option>
-                  <option>Mixed product requirement</option>
-                </select>
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-qty" className="text-forest-ink font-[700] text-[0.9rem]">Estimated quantity <span className="text-[#a33b2d]">*</span></label>
-                <input id="w-qty" name="Estimated quantity" required placeholder="Units, kg, tonnes or cartons" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-city" className="text-forest-ink font-[700] text-[0.9rem]">Delivery city <span className="text-[#a33b2d]">*</span></label>
-                <input id="w-city" name="Delivery city" required className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-pin" className="text-forest-ink font-[700] text-[0.9rem]">Pincode <span className="text-[#a33b2d]">*</span></label>
-                <input id="w-pin" name="Pincode" required inputMode="numeric" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2 md:col-span-2">
-                <label htmlFor="w-use" className="text-forest-ink font-[700] text-[0.9rem]">Intended use / buyer type <span className="text-[#a33b2d]">*</span></label>
-                <input id="w-use" name="Intended use or buyer type" required placeholder="Nursery, resale, landscaping, greenhouse…" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-date" className="text-forest-ink font-[700] text-[0.9rem]">Required date</label>
-                <input id="w-date" name="Required date" type="date" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="w-pack" className="text-forest-ink font-[700] text-[0.9rem]">Packing or label requirement</label>
-                <input id="w-pack" name="Packing or label requirement" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2 md:col-span-2">
-                <label htmlFor="w-notes" className="text-forest-ink font-[700] text-[0.9rem]">Specification or additional notes</label>
-                <textarea id="w-notes" name="Specification or notes" placeholder="Size, grade, processing, dimensions, repeat frequency or other information" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[7.5rem] resize-y focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua"></textarea>
-              </div>
-            </div>
-
-            <button type="submit" className="w-full mt-4 flex items-center justify-center gap-2 min-h-[3.2rem] px-5 py-3 rounded-full font-[750] text-white bg-forest hover:bg-forest-deep transition-colors">
-              Prepare wholesale enquiry on WhatsApp
-            </button>
-            <p className="mt-4 text-muted text-[0.85rem]">
-              The website does not store this form. Your structured message opens in WhatsApp for you to review and send to +91 87143 52330.
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
+    <>
+      {jsonLdData.map((data, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+      ))}
+      <main id="main" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </>
   );
 }

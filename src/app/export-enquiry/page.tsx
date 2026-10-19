@@ -1,158 +1,31 @@
-export default function ExportEnquiry() {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Export Enquiry for Coir and Coco Peat | Cocoqube",
+  description: "Submit an international export enquiry for coir products and coco peat from India. Share product, quantity, destination and requirements for a quote.",
+  openGraph: {
+    title: "Export Enquiry for Coir and Coco Peat | Cocoqube",
+    description: "Submit an international export enquiry for coir products and coco peat from India. Share product, quantity, destination and requirements for a quote.",
+    images: [{ url: "https://cocoqube.com/images/og/export-enquiry.jpg" }],
+  },
+  alternates: { canonical: "https://cocoqube.com/export-enquiry.html" },
+};
+
+const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Export","item":"https://cocoqube.com/export.html"},{"@type":"ListItem","position":3,"name":"Export enquiry"}]}];
+
+const contentHtml = "\n<section class=\"page-hero\"><div class=\"container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/\">Home</a><span aria-hidden=\"true\">/</span><a href=\"/export\">Export</a><span aria-hidden=\"true\">/</span><span aria-current=\"page\">Export enquiry</span></nav><p class=\"eyebrow light\">International B2B</p><h1>Start with the import requirement</h1><p class=\"lede\">For importers, distributors, greenhouse suppliers, commercial growers and private-label buyers evaluating supply from India.</p></div></section>\n<section><div class=\"container form-layout\"><aside class=\"form-aside\"><p class=\"eyebrow\">A stronger export RFQ</p><h2>Give us enough to assess fit</h2><ul class=\"check-list\"><li>Product and intended use</li><li>Quantity and destination port</li><li>Timeline and Incoterm preference</li><li>EC range, units and test method, for media</li></ul><p class=\"fine\" style=\"margin-top:1rem\">Destination classification and import conditions should be confirmed by the importer with the relevant authority or broker. First orders are normally prepaid or supported by a bank-reviewed letter of credit.</p></aside>\n<form class=\"form-card\" data-form=\"export\" novalidate=\"\"><div class=\"field-grid\"><div class=\"field\"><label for=\"f-full-name\">Full name <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-full-name\" name=\"Full name\" type=\"text\" required=\"\" autocomplete=\"name\"></div><div class=\"field\"><label for=\"f-company\">Company <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-company\" name=\"Company\" type=\"text\" required=\"\" autocomplete=\"organization\"></div><div class=\"field\"><label for=\"f-country\">Country <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-country\" name=\"Country\" type=\"text\" required=\"\" autocomplete=\"country-name\"></div><div class=\"field\"><label for=\"f-business-email\">Business email <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-business-email\" name=\"Business email\" type=\"email\" required=\"\" autocomplete=\"email\"></div><div class=\"field\"><label for=\"f-phone-or-whatsapp\">Phone / WhatsApp <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-phone-or-whatsapp\" name=\"Phone or WhatsApp\" type=\"text\" required=\"\" autocomplete=\"tel\"></div><div class=\"field\"><label for=\"f-product\">Product <span class=\"required\" aria-hidden=\"true\">*</span></label><select id=\"f-product\" name=\"Product\" required=\"\"><option value=\"\">Select</option><option>Coco peat blocks (5 kg)</option><option>Coco peat blocks (1 kg) and briquettes (650 g)</option><option>Coco husk chip blocks</option><option>Coir basket and wall liners</option><option>Coir pots and seedling cups</option><option>Hanging basket sets</option><option>Coir mulch discs</option><option>Coir support poles</option><option>Coir mats and felt</option><option>Coir propagation coins</option><option>Mixed product requirement</option></select></div><div class=\"field\"><label for=\"f-crop-or-application\">Crop or application <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-crop-or-application\" name=\"Crop or application\" type=\"text\" required=\"\"></div><div class=\"field\"><label for=\"f-required-quantity\">Required quantity <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-required-quantity\" name=\"Required quantity\" type=\"text\" required=\"\" placeholder=\"Trial, pallets, tonnes or containers\"></div><div class=\"field\"><label for=\"f-destination-port-or-city\">Destination port / city <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-destination-port-or-city\" name=\"Destination port or city\" type=\"text\" required=\"\"></div><details class=\"more\"><summary>Add technical details (optional, speeds up the quote)</summary><div class=\"field-grid\" style=\"padding-bottom:.5rem\"><div class=\"field\"><label for=\"f-role\">Role</label><input id=\"f-role\" name=\"Role\" type=\"text\" placeholder=\"Importer, distributor, grower…\"></div><div class=\"field\"><label for=\"f-ec-and-processing-requirement\">EC / processing</label><input id=\"f-ec-and-processing-requirement\" name=\"EC and processing requirement\" type=\"text\" placeholder=\"Range, units, method, washed or buffered\"></div><div class=\"field\"><label for=\"f-dimensions-or-format\">Dimensions or format</label><input id=\"f-dimensions-or-format\" name=\"Dimensions or format\" type=\"text\"></div><div class=\"field\"><label for=\"f-substrate-structure-or-blend\">Substrate structure or blend</label><input id=\"f-substrate-structure-or-blend\" name=\"Substrate structure or blend\" type=\"text\" placeholder=\"Pith, chips, fibre, particle range\"></div><div class=\"field\"><label for=\"f-preferred-commercial-basis\">Preferred commercial basis</label><select id=\"f-preferred-commercial-basis\" name=\"Preferred commercial basis\"><option>Open to discussion</option><option>FCA (named place)</option><option>FOB</option><option>CFR</option><option>CIF</option><option>EXW</option></select></div><div class=\"field\"><label for=\"f-preferred-payment-route\">Preferred payment route</label><select id=\"f-preferred-payment-route\" name=\"Preferred payment route\"><option>Advance (samples and pilots)</option><option>Letter of credit (bank-reviewed)</option><option>Open to discussion</option></select></div><div class=\"field\"><label for=\"f-packing-or-private-label-requirement\">Packing or private-label requirement</label><input id=\"f-packing-or-private-label-requirement\" name=\"Packing or private-label requirement\" type=\"text\"></div><div class=\"field\"><label for=\"f-required-documents\">Required documents</label><input id=\"f-required-documents\" name=\"Required documents\" type=\"text\" placeholder=\"Buyer and destination requirements\"></div><div class=\"field\"><label for=\"f-target-shipment-date\">Target shipment date</label><input id=\"f-target-shipment-date\" name=\"Target shipment date\" type=\"date\"></div><div class=\"field\"><label for=\"f-sample-expectation\">Sample expectation</label><select id=\"f-sample-expectation\" name=\"Sample expectation\"><option>Discuss after initial review</option><option>Paid sample requested</option><option>Existing approved specification</option><option>Trial order preferred</option></select></div><div class=\"field full\"><label for=\"f-additional-notes\">Additional notes</label><textarea id=\"f-additional-notes\" name=\"Additional notes\"></textarea></div></div></details></div>\n<div class=\"btn-row three\"><button class=\"button dark full\" type=\"submit\">Prepare export enquiry on WhatsApp</button><button class=\"button outline full\" type=\"button\" data-action=\"email\">Send by email</button><button class=\"button outline full\" type=\"button\" data-action=\"copy\">Copy enquiry text</button></div>\n<div class=\"form-status\" role=\"status\"></div>\n<p class=\"form-note\">This website does not store your form. WhatsApp opens with your enquiry ready to review and send, or copy the text into an email. Replies follow India Standard Time (UTC+5:30).</p></form></div></section><section><div class=\"narrow article\"><p class=\"eyebrow\">What happens next</p><h2>After you send an export enquiry</h2><p>We confirm product, quantity, destination and required documents, and propose a paid sample followed by a pallet pilot on a named handover point. The importer or broker confirms destination classification and import conditions. Prepare with the <a class=\"text-link\" href=\"/guide-export-packing-checklist\">export packing checklist</a>, and see <a class=\"text-link\" href=\"/export\">export from India</a>.</p></div></section>\n";
+
+export default function Page() {
   return (
-    <main>
-      {/* Page Hero */}
-      <section className="bg-forest-deep text-white py-14 md:py-24">
-        <div className="px-5 max-w-[76rem] mx-auto">
-          <div className="flex gap-2 text-[#afc7ba] text-[0.9rem] mb-5">
-            <a href="/" className="text-white hover:underline">Home</a>
-            <span>/</span>
-            <span>Export enquiry</span>
-          </div>
-          <p className="text-label-caps text-[#b9e37f] mb-3">International B2B</p>
-          <h1 className="text-[clamp(2.8rem,6vw,5rem)] max-w-[15ch] leading-[1.08] tracking-[-0.035em] font-[600] mb-4">
-            Start with the import requirement.
-          </h1>
-          <p className="text-lede text-[#cce0d5] max-w-[42rem]">
-            For importers, substrate distributors, greenhouse suppliers, commercial growers and private-label buyers evaluating supply from India.
-          </p>
-        </div>
-      </section>
-
-      {/* Form Section */}
-      <section className="bg-white py-16 md:py-28">
-        <div className="px-5 max-w-[76rem] mx-auto grid grid-cols-1 md:grid-cols-[0.72fr_1.28fr] gap-12 items-start">
-          
-          <aside className="md:sticky md:top-28">
-            <p className="text-label-caps text-forest mb-3">A stronger export RFQ</p>
-            <h2 className="text-headline-lg mb-6">Give us enough information to assess fit.</h2>
-            <p className="text-botanical text-[1.05rem] mb-6">
-              Specifications, quantity, destination and documentation scope determine whether an offer is commercially and technically useful.
-            </p>
-            <ul className="list-none p-0 m-0 space-y-4">
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">State EC range, units and test method</li>
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">Define product dimensions and substrate structure</li>
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">Give volume, destination port and timeline</li>
-              <li className="relative pl-8 border-b border-line pb-3 before:content-['✓'] before:absolute before:left-0 before:text-forest before:font-[900]">List packing, label and document requirements</li>
-            </ul>
-            <p className="text-[0.88rem] text-muted mt-6">
-              Destination classification and import conditions should be confirmed by the importer with the relevant authority or appointed broker.
-            </p>
-          </aside>
-
-          <form className="p-[clamp(1.5rem,4vw,2.8rem)] border border-line rounded-[1.5rem] bg-white shadow-[0_18px_60px_rgba(6,57,35,0.08)]">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-name" className="text-forest-ink font-[700] text-[0.9rem]">Full name <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-name" name="Name" required autoComplete="name" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-company" className="text-forest-ink font-[700] text-[0.9rem]">Company <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-company" name="Company" required autoComplete="organization" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-country" className="text-forest-ink font-[700] text-[0.9rem]">Country <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-country" name="Country" required autoComplete="country-name" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-role" className="text-forest-ink font-[700] text-[0.9rem]">Role</label>
-                <input id="e-role" name="Role" placeholder="Importer, distributor, grower…" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-email" className="text-forest-ink font-[700] text-[0.9rem]">Business email <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-email" name="Business email" type="email" required autoComplete="email" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-phone" className="text-forest-ink font-[700] text-[0.9rem]">Phone / WhatsApp <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-phone" name="Phone or WhatsApp" required autoComplete="tel" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-product" className="text-forest-ink font-[700] text-[0.9rem]">Product <span className="text-[#a33b2d]">*</span></label>
-                <select id="e-product" name="Product" required className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua">
-                  <option value="">Select</option>
-                  <option>Low EC coco peat blocks</option>
-                  <option>High EC coco peat blocks</option>
-                  <option>Coco peat grow bags</option>
-                  <option>Coco husk chip blocks</option>
-                  <option>Coir pots / seedling cups</option>
-                  <option>Coir liners / wall liners</option>
-                  <option>Mulch mats / coir rolls</option>
-                  <option>Coco poles</option>
-                  <option>Coco coins / propagation products</option>
-                  <option>Coir scrub pads</option>
-                  <option>Mixed coir product range</option>
-                </select>
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-use" className="text-forest-ink font-[700] text-[0.9rem]">Crop / application <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-use" name="Crop or application" required className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-ec" className="text-forest-ink font-[700] text-[0.9rem]">EC / processing requirement</label>
-                <input id="e-ec" name="EC and processing requirement" placeholder="Range, units, method, washed/buffered" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-size" className="text-forest-ink font-[700] text-[0.9rem]">Dimensions / format</label>
-                <input id="e-size" name="Dimensions or format" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-blend" className="text-forest-ink font-[700] text-[0.9rem]">Substrate structure or blend</label>
-                <input id="e-blend" name="Substrate structure or blend" placeholder="Pith, chips, fibre, particle range" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-qty" className="text-forest-ink font-[700] text-[0.9rem]">Required quantity <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-qty" name="Required quantity" required placeholder="Trial, pallets, tonnes or containers" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-port" className="text-forest-ink font-[700] text-[0.9rem]">Destination port / city <span className="text-[#a33b2d]">*</span></label>
-                <input id="e-port" name="Destination port or city" required className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-term" className="text-forest-ink font-[700] text-[0.9rem]">Preferred commercial basis</label>
-                <select id="e-term" name="Preferred commercial basis" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua">
-                  <option>Open to discussion</option>
-                  <option>EXW</option>
-                  <option>FOB</option>
-                  <option>CFR</option>
-                  <option>CIF</option>
-                </select>
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-pack" className="text-forest-ink font-[700] text-[0.9rem]">Packing / private label</label>
-                <input id="e-pack" name="Packing or private-label requirement" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-docs" className="text-forest-ink font-[700] text-[0.9rem]">Required documents</label>
-                <input id="e-docs" name="Required documents" placeholder="List buyer/destination requirements" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-date" className="text-forest-ink font-[700] text-[0.9rem]">Target shipment date</label>
-                <input id="e-date" name="Target shipment date" type="date" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              <div className="grid gap-[0.4rem] mb-2">
-                <label htmlFor="e-sample" className="text-forest-ink font-[700] text-[0.9rem]">Sample expectation</label>
-                <select id="e-sample" name="Sample expectation" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua">
-                  <option>Discuss after initial review</option>
-                  <option>Paid sample requested</option>
-                  <option>Existing approved specification</option>
-                  <option>Trial order preferred</option>
-                </select>
-              </div>
-              <div className="grid gap-[0.4rem] mb-2 md:col-span-2">
-                <label htmlFor="e-notes" className="text-forest-ink font-[700] text-[0.9rem]">Additional specification or commercial notes</label>
-                <textarea id="e-notes" name="Additional notes" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[7.5rem] resize-y focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua"></textarea>
-              </div>
-            </div>
-
-            <button type="submit" className="w-full mt-4 flex items-center justify-center gap-2 min-h-[3.2rem] px-5 py-3 rounded-full font-[750] text-white bg-forest hover:bg-forest-deep transition-colors">
-              Prepare export enquiry on WhatsApp
-            </button>
-            <p className="mt-4 text-muted text-[0.85rem]">
-              The website does not store this form. Your structured message opens in WhatsApp for you to review and send to CocoQube.
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
+    <>
+      {jsonLdData.map((data, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+      ))}
+      <main id="main" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </>
   );
 }

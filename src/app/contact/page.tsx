@@ -1,117 +1,31 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 
-export default function Contact() {
+export const metadata: Metadata = {
+  title: "Contact Cocoqube | Bengaluru Coir Supplier",
+  description: "Contact Cocoqube in Bengaluru by WhatsApp, phone or email, or book an online buyer meeting to review products, samples and documentation.",
+  openGraph: {
+    title: "Contact Cocoqube | Bengaluru Coir Supplier",
+    description: "Contact Cocoqube in Bengaluru by WhatsApp, phone or email, or book an online buyer meeting to review products, samples and documentation.",
+    images: [{ url: "https://cocoqube.com/images/og/contact.jpg" }],
+  },
+  alternates: { canonical: "https://cocoqube.com/contact.html" },
+};
+
+const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Contact"}]},{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Cocoqube | Bengaluru Coir Supplier","url":"https://cocoqube.com/contact.html","about":{"@id":"https://cocoqube.com/#organization"},"isPartOf":{"@type":"WebSite","name":"Cocoqube","url":"https://cocoqube.com/"}}];
+
+const contentHtml = "\n<section class=\"page-hero\"><div class=\"container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/\">Home</a><span aria-hidden=\"true\">/</span><span aria-current=\"page\">Contact</span></nav><p class=\"eyebrow light\">Contact</p><h1>Talk to Cocoqube</h1><p class=\"lede\">Reach us by WhatsApp or phone, or request a buyer meeting to review your product brief, samples and commercial pathway.</p></div></section>\n<section><div class=\"container form-layout\"><aside class=\"form-aside\"><p class=\"eyebrow\">Direct contact</p><h2>Reach us today</h2><ul class=\"check-list\"><li><a class=\"text-link\" href=\"https://wa.me/918714352330\">WhatsApp +91 87143 52330</a></li><li><a class=\"text-link\" href=\"tel:+918714352330\">Call +91 87143 52330</a></li><li>Property no. 224, 80/3, KR Puram Hobli, Old Madras Road, Bengaluru, Karnataka 560016</li><li><a class=\"text-link\" href=\"https://www.cocoqube.com\">www.cocoqube.com</a></li></ul><p class=\"fine\" style=\"margin-top:1rem\">Replies follow India Standard Time (UTC+5:30). No public trade-fair dates are confirmed. Appointments will be listed here only after they are booked.</p></aside>\n<form class=\"form-card\" data-form=\"contact\" novalidate=\"\"><div class=\"field-grid\"><div class=\"field\"><label for=\"f-name\">Name <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-name\" name=\"Name\" type=\"text\" required=\"\" autocomplete=\"name\"></div><div class=\"field\"><label for=\"f-company\">Company <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-company\" name=\"Company\" type=\"text\" required=\"\" autocomplete=\"organization\"></div><div class=\"field\"><label for=\"f-city-or-country\">City / country <span class=\"required\" aria-hidden=\"true\">*</span></label><input id=\"f-city-or-country\" name=\"City or country\" type=\"text\" required=\"\"></div><div class=\"field\"><label for=\"f-preferred-meeting-format\">Preferred format</label><select id=\"f-preferred-meeting-format\" name=\"Preferred meeting format\"><option>Video call</option><option>Phone call</option><option>In-person meeting (Bengaluru)</option></select></div><div class=\"field full\"><label for=\"f-products-and-meeting-objective\">Products and objective <span class=\"required\" aria-hidden=\"true\">*</span></label><textarea id=\"f-products-and-meeting-objective\" name=\"Products and meeting objective\" required=\"\"></textarea></div><div class=\"field full\"><label for=\"f-preferred-date-or-buying-timeline\">Preferred date or buying timeline</label><input id=\"f-preferred-date-or-buying-timeline\" name=\"Preferred date or buying timeline\" type=\"text\"></div></div>\n<div class=\"btn-row three\"><button class=\"button dark full\" type=\"submit\">Prepare message on WhatsApp</button><button class=\"button outline full\" type=\"button\" data-action=\"email\">Send by email</button><button class=\"button outline full\" type=\"button\" data-action=\"copy\">Copy enquiry text</button></div>\n<div class=\"form-status\" role=\"status\"></div>\n<p class=\"form-note\">This website does not store your form. WhatsApp opens with your enquiry ready to review and send, or copy the text into an email. Replies follow India Standard Time (UTC+5:30).</p></form></div></section><section><div class=\"narrow article\"><p class=\"eyebrow\">Before you write</p><h2>What to send us</h2><p>The fastest route to a useful reply is a short message with the product, size or grade, quantity, delivery pincode or destination port, and the date you need it. Use the <a class=\"text-link\" href=\"/coco-peat-enquiry\">coco peat block quote form</a>, the <a class=\"text-link\" href=\"/wholesale-enquiry\">wholesale form</a> or the <a class=\"text-link\" href=\"/export-enquiry\">export form</a>. We are in Bengaluru, India, and reply in India Standard Time (UTC+5:30). Browse <a class=\"text-link\" href=\"/resources\">buyer guides</a> or the <a class=\"text-link\" href=\"/faq\">FAQ</a> first if you are comparing options.</p></div></section>\n";
+
+export default function Page() {
   return (
-    <main>
-      {/* Page Hero */}
-      <section className="bg-forest-deep text-white py-14 md:py-24">
-        <div className="px-5 max-w-[76rem] mx-auto">
-          <div className="flex gap-2 text-[#afc7ba] text-[0.9rem] mb-5">
-            <Link href="/" className="text-white hover:underline">Home</Link>
-            <span>/</span>
-            <span>Contact</span>
-          </div>
-          <p className="text-label-caps text-[#b9e37f] mb-3">Contact CocoQube</p>
-          <h1 className="text-[clamp(2.8rem,6vw,5rem)] max-w-[15ch] leading-[1.08] tracking-[-0.035em] font-[600] mb-4">
-            Tell us what you need to source.
-          </h1>
-          <p className="text-lede text-[#cce0d5] max-w-[42rem]">
-            Choose the enquiry route that matches your requirement, or send a general message for product, documentation or partnership questions.
-          </p>
-        </div>
-      </section>
-
-      {/* Choice Grid */}
-      <section className="bg-white py-16 md:py-28">
-        <div className="px-5 max-w-[76rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Link href="/wholesale-enquiry" className="flex flex-col min-h-[17rem] p-8 border border-line rounded-[1.4rem] bg-white shadow-[0_14px_40px_rgba(6,57,35,0.06)] hover:border-aqua transition-colors text-decoration-none group">
-            <span className="text-aqua text-[0.8rem] font-[900] tracking-[0.1em] uppercase">India</span>
-            <h2 className="text-[clamp(1.75rem,3vw,2.6rem)] my-3">Wholesale enquiry</h2>
-            <p className="text-muted">
-              For nurseries, garden businesses, distributors, landscapers and repeat domestic buyers.
-            </p>
-            <strong className="mt-auto text-forest group-hover:text-aqua transition-colors">Open wholesale form →</strong>
-          </Link>
-          <Link href="/export-enquiry" className="flex flex-col min-h-[17rem] p-8 border border-line rounded-[1.4rem] bg-white shadow-[0_14px_40px_rgba(6,57,35,0.06)] hover:border-aqua transition-colors text-decoration-none group">
-            <span className="text-aqua text-[0.8rem] font-[900] tracking-[0.1em] uppercase">International</span>
-            <h2 className="text-[clamp(1.75rem,3vw,2.6rem)] my-3">Export enquiry</h2>
-            <p className="text-muted">
-              For importers, distributors and commercial growers requiring product and shipment specifications.
-            </p>
-            <strong className="mt-auto text-forest group-hover:text-aqua transition-colors">Open export form →</strong>
-          </Link>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="bg-white pb-16 md:pb-28">
-        <div className="px-5 max-w-[76rem] mx-auto grid grid-cols-1 md:grid-cols-[0.72fr_1.28fr] gap-12 items-start">
-          
-          <aside className="md:sticky md:top-28">
-            <p className="text-label-caps text-forest mb-3">Direct contact</p>
-            <h2 className="text-headline-lg mb-6">CocoQube, Bengaluru, India</h2>
-            
-            <div className="grid gap-3 my-6">
-              <a href="tel:+918714352330" className="grid gap-1 p-4 border border-line rounded-[0.9rem] bg-white hover:border-aqua transition-colors">
-                <small className="text-muted text-sm">Phone / WhatsApp</small>
-                <strong className="text-forest text-lg">+91 87143 52330</strong>
-              </a>
-              <a href="https://wa.me/918714352330" target="_blank" rel="noopener noreferrer" className="grid gap-1 p-4 border border-line rounded-[0.9rem] bg-white hover:border-aqua transition-colors">
-                <small className="text-muted text-sm">Message</small>
-                <strong className="text-forest text-lg">Open WhatsApp</strong>
-              </a>
-              <a href="https://www.cocoqube.com" target="_blank" rel="noopener noreferrer" className="grid gap-1 p-4 border border-line rounded-[0.9rem] bg-white hover:border-aqua transition-colors">
-                <small className="text-muted text-sm">Website</small>
-                <strong className="text-forest text-lg">www.cocoqube.com</strong>
-              </a>
-            </div>
-            <p className="text-[0.88rem] text-muted">
-              Business email and full office address will be published when confirmed for public enquiries.
-            </p>
-          </aside>
-
-          <form className="p-[clamp(1.5rem,4vw,2.8rem)] border border-line rounded-[1.5rem] bg-white shadow-[0_18px_60px_rgba(6,57,35,0.08)]">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="grid gap-[0.4rem] mb-4">
-                <label htmlFor="c-name" className="text-forest-ink font-[700] text-[0.9rem]">Full name <span className="text-[#a33b2d]">*</span></label>
-                <input id="c-name" name="Name" required autoComplete="name" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-              
-              <div className="grid gap-[0.4rem] mb-4">
-                <label htmlFor="c-company" className="text-forest-ink font-[700] text-[0.9rem]">Company</label>
-                <input id="c-company" name="Company" autoComplete="organization" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-
-              <div className="grid gap-[0.4rem] mb-4">
-                <label htmlFor="c-phone" className="text-forest-ink font-[700] text-[0.9rem]">Phone / WhatsApp <span className="text-[#a33b2d]">*</span></label>
-                <input id="c-phone" name="Phone or WhatsApp" required autoComplete="tel" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-
-              <div className="grid gap-[0.4rem] mb-4">
-                <label htmlFor="c-country" className="text-forest-ink font-[700] text-[0.9rem]">City / country</label>
-                <input id="c-country" name="City or country" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-
-              <div className="grid gap-[0.4rem] mb-4 md:col-span-2">
-                <label htmlFor="c-subject" className="text-forest-ink font-[700] text-[0.9rem]">Subject <span className="text-[#a33b2d]">*</span></label>
-                <input id="c-subject" name="Subject" required placeholder="Product, documentation, partnership or general enquiry" className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[3rem] focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua" />
-              </div>
-
-              <div className="grid gap-[0.4rem] mb-4 md:col-span-2">
-                <label htmlFor="c-message" className="text-forest-ink font-[700] text-[0.9rem]">Message <span className="text-[#a33b2d]">*</span></label>
-                <textarea id="c-message" name="Message" required className="w-full border border-[#bdcfc4] rounded-[0.75rem] bg-white text-forest-ink p-3 min-h-[7.5rem] resize-y focus:outline focus:outline-[3px] focus:outline-[rgba(0,167,200,0.18)] focus:border-aqua"></textarea>
-              </div>
-            </div>
-
-            <button type="button" className="w-full mt-4 flex items-center justify-center gap-2 min-h-[3.2rem] px-5 py-3 rounded-full font-[750] text-white bg-forest hover:bg-forest-deep transition-colors">
-              Prepare message on WhatsApp
-            </button>
-            <p className="mt-4 text-muted text-[0.85rem]">
-              The website does not store this form. Your message opens in WhatsApp for you to review and send.
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
+    <>
+      {jsonLdData.map((data, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+      ))}
+      <main id="main" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </>
   );
 }
