@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { DbBlogPost } from '@/lib/blogs';
@@ -28,11 +28,18 @@ const PRESET_IMAGES = [
 
 export default function AdminDashboard({ initialPosts, isSupabaseConnected }: Props) {
   const router = useRouter();
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [posts, setPosts] = useState<DbBlogPost[]>(initialPosts);
   const [editingPost, setEditingPost] = useState<DbBlogPost | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  // Cover Image upload states
+  const [imageTab, setImageTab] = useState<'upload' | 'preset' | 'url'>('upload');
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [dragActive, setDragActive] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -56,6 +63,8 @@ export default function AdminDashboard({ initialPosts, isSupabaseConnected }: Pr
 
   const openNewModal = () => {
     setEditingPost(null);
+    setImageTab('upload');
+    setUploadError(null);
     setFormData({
       id: '',
       title: '',
@@ -74,6 +83,8 @@ export default function AdminDashboard({ initialPosts, isSupabaseConnected }: Pr
 
   const openEditModal = (post: DbBlogPost) => {
     setEditingPost(post);
+    setImageTab(post.image?.startsWith('/images/') ? 'preset' : post.image?.startsWith('http') ? 'url' : 'upload');
+    setUploadError(null);
     setFormData({
       id: post.id || '',
       title: post.title,
@@ -88,6 +99,55 @@ export default function AdminDashboard({ initialPosts, isSupabaseConnected }: Pr
       is_published: post.is_published,
     });
     setIsModalOpen(true);
+  };
+
+  const handleImageFile = async (file: File) => {
+    if (!file) return;
+    setUploadingImage(true);
+    setUploadError(null);
+
+    try {
+      const fd = new FormData();
+      fd.append('file', file);
+
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: fd,
+      });
+
+      const data = await res.json();
+      if (res.ok && data.url) {
+        setFormData((prev) => ({
+          ...prev,
+          image: data.url,
+        }));
+      } else {
+        // Fallback to client Data URL so user is never blocked
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setFormData((prev) => ({
+            ...prev,
+            image: e.target?.result as string,
+          }));
+        };
+        reader.readAsDataURL(file);
+        if (data.error) {
+          setUploadError(data.error);
+        }
+      }
+    } catch {
+      // Fallback to client Data URL
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFormData((prev) => ({
+          ...prev,
+          image: e.target?.result as string,
+        }));
+      };
+      reader.readAsDataURL(file);
+    } finally {
+      setUploadingImage(false);
+    }
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -434,35 +494,230 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key`}
                   </div>
 
                   <div className="field full">
-                    <label>Cover Image</label>
-                    <div style={{ display: 'flex', gap: '.6rem', flexWrap: 'wrap', marginBottom: '.6rem' }}>
-                      {PRESET_IMAGES.map((img) => (
-                        <button
-                          key={img.url}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, image: img.url })}
+                    <label style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '.4rem' }}>
+                      <span style={{ fontWeight: 700 }}>Cover Image *</span>
+                      <span className="fine" style={{ fontSize: '.78rem', color: 'var(--muted)' }}>
+                        Pick from files, choose preset, or paste URL
+                      </span>
+                    </label>
+
+                    {/* Source Selector Tabs */}
+                    <div style={{ display: 'flex', gap: '.4rem', marginBottom: '.8rem', background: 'var(--sand)', padding: '.3rem', borderRadius: '.6rem' }}>
+                      <button
+                        type="button"
+                        onClick={() => setImageTab('upload')}
+                        style={{
+                          flex: 1,
+                          padding: '.5rem .8rem',
+                          border: 0,
+                          borderRadius: '.4rem',
+                          fontSize: '.82rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          background: imageTab === 'upload' ? '#fff' : 'transparent',
+                          color: imageTab === 'upload' ? 'var(--forest)' : 'var(--muted)',
+                          boxShadow: imageTab === 'upload' ? '0 1px 3px rgba(0,0,0,.08)' : 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '.4rem',
+                          transition: 'all .15s ease',
+                        }}
+                      >
+                        📁 Choose from Files
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setImageTab('preset')}
+                        style={{
+                          flex: 1,
+                          padding: '.5rem .8rem',
+                          border: 0,
+                          borderRadius: '.4rem',
+                          fontSize: '.82rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          background: imageTab === 'preset' ? '#fff' : 'transparent',
+                          color: imageTab === 'preset' ? 'var(--forest)' : 'var(--muted)',
+                          boxShadow: imageTab === 'preset' ? '0 1px 3px rgba(0,0,0,.08)' : 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '.4rem',
+                          transition: 'all .15s ease',
+                        }}
+                      >
+                        🖼️ Factory Presets
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setImageTab('url')}
+                        style={{
+                          flex: 1,
+                          padding: '.5rem .8rem',
+                          border: 0,
+                          borderRadius: '.4rem',
+                          fontSize: '.82rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          background: imageTab === 'url' ? '#fff' : 'transparent',
+                          color: imageTab === 'url' ? 'var(--forest)' : 'var(--muted)',
+                          boxShadow: imageTab === 'url' ? '0 1px 3px rgba(0,0,0,.08)' : 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '.4rem',
+                          transition: 'all .15s ease',
+                        }}
+                      >
+                        🔗 Image Link / URL
+                      </button>
+                    </div>
+
+                    {/* TAB 1: Upload from Files */}
+                    {imageTab === 'upload' && (
+                      <div>
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif,image/avif"
+                          style={{ display: 'none' }}
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) handleImageFile(file);
+                          }}
+                        />
+                        <div
+                          onDragOver={(e) => { e.preventDefault(); setDragActive(true); }}
+                          onDragLeave={() => setDragActive(false)}
+                          onDrop={(e) => {
+                            e.preventDefault();
+                            setDragActive(false);
+                            const file = e.dataTransfer.files?.[0];
+                            if (file) handleImageFile(file);
+                          }}
+                          onClick={() => fileInputRef.current?.click()}
                           style={{
-                            padding: '.35rem .7rem',
-                            borderRadius: '999px',
-                            fontSize: '.75rem',
-                            fontWeight: 700,
+                            border: `2px dashed ${dragActive ? 'var(--forest)' : '#cbd5e1'}`,
+                            borderRadius: '.8rem',
+                            padding: '1.6rem 1rem',
+                            textAlign: 'center',
                             cursor: 'pointer',
-                            border: formData.image === img.url ? '2px solid var(--forest)' : '1px solid var(--line)',
-                            background: formData.image === img.url ? 'var(--pale)' : '#fff',
-                            color: formData.image === img.url ? 'var(--forest)' : 'var(--forest-ink)',
+                            background: dragActive ? 'var(--pale)' : '#fdfcfb',
+                            transition: 'all .2s ease',
                           }}
                         >
-                          {img.label}
+                          <div style={{ fontSize: '2rem', marginBottom: '.4rem' }}>
+                            {uploadingImage ? '⏳' : '📥'}
+                          </div>
+                          <p style={{ margin: 0, fontWeight: 700, fontSize: '.95rem', color: 'var(--forest)' }}>
+                            {uploadingImage ? 'Uploading image from files...' : 'Click to select an image from your device'}
+                          </p>
+                          <p className="fine" style={{ margin: '.3rem 0 0', color: 'var(--muted)', fontSize: '.8rem' }}>
+                            Or drag & drop any JPG, PNG, WebP, GIF, or SVG image file here
+                          </p>
+                        </div>
+                        {uploadError && (
+                          <p style={{ color: '#c5221f', fontSize: '.82rem', marginTop: '.4rem' }}>⚠️ {uploadError}</p>
+                        )}
+                      </div>
+                    )}
+
+                    {/* TAB 2: Presets */}
+                    {imageTab === 'preset' && (
+                      <div>
+                        <div style={{ display: 'flex', gap: '.6rem', flexWrap: 'wrap', marginBottom: '.6rem' }}>
+                          {PRESET_IMAGES.map((img) => (
+                            <button
+                              key={img.url}
+                              type="button"
+                              onClick={() => setFormData({ ...formData, image: img.url })}
+                              style={{
+                                padding: '.4rem .85rem',
+                                borderRadius: '999px',
+                                fontSize: '.78rem',
+                                fontWeight: 700,
+                                cursor: 'pointer',
+                                border: formData.image === img.url ? '2px solid var(--forest)' : '1px solid var(--line)',
+                                background: formData.image === img.url ? 'var(--pale)' : '#fff',
+                                color: formData.image === img.url ? 'var(--forest)' : 'var(--forest-ink)',
+                                transition: 'all .15s ease',
+                              }}
+                            >
+                              {img.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* TAB 3: Custom URL */}
+                    {imageTab === 'url' && (
+                      <input
+                        type="text"
+                        value={formData.image}
+                        onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                        placeholder="Paste image link (e.g. https://... or /images/process-qc.jpg)"
+                        required
+                      />
+                    )}
+
+                    {/* Preview of Selected Image */}
+                    {formData.image && (
+                      <div style={{
+                        marginTop: '.8rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1rem',
+                        padding: '.6rem .8rem',
+                        borderRadius: '.7rem',
+                        background: '#f8fafc',
+                        border: '1px solid var(--line)',
+                      }}>
+                        <div style={{
+                          width: '68px',
+                          height: '50px',
+                          borderRadius: '.5rem',
+                          overflow: 'hidden',
+                          background: '#e2e8f0',
+                          flexShrink: 0,
+                          border: '1px solid rgba(0,0,0,.08)'
+                        }}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={formData.image}
+                            alt="Selected cover preview"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/images/process-qc.jpg';
+                            }}
+                          />
+                        </div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <p style={{ margin: 0, fontSize: '.84rem', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: 'var(--forest-ink)' }}>
+                            {formData.image.startsWith('data:') ? 'Custom file uploaded from device (Ready)' : formData.image}
+                          </p>
+                          <span className="fine" style={{ fontSize: '.75rem', color: '#16a34a', display: 'flex', alignItems: 'center', gap: '.3rem', marginTop: '.1rem' }}>
+                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#16a34a' }}></span>
+                            Ready to publish
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (imageTab === 'upload') {
+                              fileInputRef.current?.click();
+                            } else {
+                              setFormData({ ...formData, image: '' });
+                            }
+                          }}
+                          className="button ghost"
+                          style={{ padding: '.35rem .75rem', fontSize: '.78rem', minHeight: 'auto', borderColor: 'var(--line)' }}
+                        >
+                          {imageTab === 'upload' ? 'Change File' : 'Clear'}
                         </button>
-                      ))}
-                    </div>
-                    <input
-                      type="text"
-                      value={formData.image}
-                      onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                      placeholder="Image URL or path (e.g. /images/process-qc.jpg)"
-                      required
-                    />
+                      </div>
+                    )}
                   </div>
 
                   <div className="field full">
