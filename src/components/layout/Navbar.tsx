@@ -79,7 +79,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/resources"
-            aria-current={pathname?.startsWith('/resources') || pathname?.startsWith('/guide-') ? 'page' : undefined}
+            aria-current={pathname?.startsWith('/resources') || pathname?.startsWith('/guide-') || pathname?.startsWith('/blogs') ? 'page' : undefined}
           >
             Resources
           </Link>

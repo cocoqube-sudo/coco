@@ -54,6 +54,7 @@ export default function Footer() {
             <div className="footer-links">
               <Link href="/about">About</Link>
               <Link href="/resources">Resources</Link>
+              <Link href="/blogs">Blog</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/contact">Contact</Link>
               <a href="https://wa.me/918714352330">WhatsApp</a>
