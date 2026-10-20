@@ -1,0 +1,46 @@
+[
+  {
+    "id": "lead-demo-1",
+    "created_at": "2026-10-20T08:15:00.000Z",
+    "form_type": "export",
+    "name": "Marcus Vance",
+    "company": "Vance Horticulture BV",
+    "phone": "+31 6 1234 5678",
+    "email": "m.vance@vancehorticulture.nl",
+    "city": "Rotterdam",
+    "country": "Netherlands",
+    "product": "Coco peat blocks (5 kg)",
+    "quantity": "5 x 40ft HC Containers",
+    "status": "new",
+    "notes": "Interested in low-EC washed blocks (< 0.5 mS/cm, 1:1.5 extraction method). CIF Rotterdam.",
+    "details": {
+      "Crop or application": "Greenhouse Bell Peppers & Strawberries",
+      "EC and processing requirement": "Washed, Low EC < 0.5 mS/cm (1:1.5 volume)",
+      "Preferred commercial basis": "CIF",
+      "Preferred payment route": "Letter of credit (bank-reviewed)",
+      "Target shipment date": "2026-12-01",
+      "Sample expectation": "Paid sample requested"
+    }
+  },
+  {
+    "id": "lead-demo-2",
+    "created_at": "2026-10-19T14:30:00.000Z",
+    "form_type": "wholesale",
+    "name": "Rajesh Sharma",
+    "company": "GreenGro Nursery & Landscaping Supplies",
+    "phone": "+91 98450 11223",
+    "email": "rajesh@greengronursery.in",
+    "city": "Bengaluru",
+    "country": "India",
+    "product": "Coir basket and wall liners",
+    "quantity": "2,500 units assorted",
+    "status": "contacted",
+    "notes": "Discussed 12-inch and 14-inch hanging basket liners. Quote prepared.",
+    "details": {
+      "Buyer type": "Nursery",
+      "Pincode": "560064",
+      "Sizes or grades": "12 inch round, 14 inch wall troughs",
+      "Repeat frequency": "Monthly seasonal"
+    }
+  }
+]

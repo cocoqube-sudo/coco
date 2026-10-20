@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import { checkAdminAuth } from './actions';
 import { getAdminBlogPosts } from '@/lib/blogs';
+import { getEnquiries } from '@/lib/enquiries';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import AdminDashboard from './AdminDashboard';
 import AdminLogin from './AdminLogin';
 
 export const metadata: Metadata = {
-  title: 'Blog Admin Panel | Cocoqube',
-  description: 'Manage and publish blog articles connected to Supabase.',
+  title: 'Cocoqube Admin Panel | Blogs & Client Enquiries',
+  description: 'Manage blog publications and view client RFQ enquiries.',
   robots: { index: false, follow: false },
 };
 
@@ -18,11 +19,15 @@ export default async function AdminPage() {
     return <AdminLogin />;
   }
 
-  const posts = await getAdminBlogPosts();
+  const [posts, enquiries] = await Promise.all([
+    getAdminBlogPosts(),
+    getEnquiries(),
+  ]);
 
   return (
     <AdminDashboard
       initialPosts={posts}
+      initialEnquiries={enquiries}
       isSupabaseConnected={isSupabaseConfigured}
     />
   );

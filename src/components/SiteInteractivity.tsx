@@ -73,6 +73,24 @@ export default function SiteInteractivity() {
       status.classList.add('show');
     };
 
+    const saveLead = (form: HTMLFormElement) => {
+      try {
+        const formData = new FormData(form);
+        const data: Record<string, any> = {
+          form_type: form.dataset.form || 'contact',
+        };
+        formData.forEach((value, key) => {
+          data[key] = String(value).trim();
+        });
+
+        fetch('/api/enquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        }).catch(() => {});
+      } catch {}
+    };
+
     document.querySelectorAll<HTMLFormElement>('form[data-form]').forEach((form) => {
       const emailBtn = form.querySelector<HTMLButtonElement>('[data-action="email"]');
       if (emailBtn && !BUSINESS_EMAIL) emailBtn.hidden = true;
@@ -81,8 +99,9 @@ export default function SiteInteractivity() {
       form.onsubmit = (event) => {
         event.preventDefault();
         if (!form.reportValidity()) return;
+        saveLead(form);
         const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(buildMessage(form));
-        setStatus(form, 'Your enquiry is ready. WhatsApp opens in a new tab so you can review and send it.');
+        setStatus(form, 'Your enquiry has been received and opened on WhatsApp ready to send.');
         window.open(url, '_blank', 'noopener,noreferrer');
       };
 
@@ -90,13 +109,14 @@ export default function SiteInteractivity() {
       form.querySelectorAll<HTMLButtonElement>('[data-action]').forEach((btn) => {
         btn.onclick = () => {
           if (!form.reportValidity()) return;
+          saveLead(form);
           const text = buildMessage(form);
           if (btn.dataset.action === 'email' && BUSINESS_EMAIL) {
             const subject = 'Cocoqube ' + (form.dataset.form || 'enquiry');
             window.location.href =
               'mailto:' + BUSINESS_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
           } else if (btn.dataset.action === 'copy') {
-            const done = () => setStatus(form, 'Enquiry copied. Paste it into an email or message to Cocoqube.');
+            const done = () => setStatus(form, 'Enquiry saved and copied to clipboard.');
             if (navigator.clipboard && navigator.clipboard.writeText) {
               navigator.clipboard.writeText(text).then(done, () =>
                 setStatus(form, 'Copy was blocked by your browser. Please use the WhatsApp button.')

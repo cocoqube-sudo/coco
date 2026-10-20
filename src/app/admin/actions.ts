@@ -206,3 +206,22 @@ export async function seedInitialBlogs() {
     return { success: false, error: err.message || 'Error seeding blogs to Supabase.' };
   }
 }
+
+export async function updateLeadStatus(id: string, status: 'new' | 'contacted' | 'quoted' | 'closed') {
+  const isAuth = await checkAdminAuth();
+  if (!isAuth) return { success: false, error: 'Unauthorized' };
+  const { updateEnquiryStatus } = await import('@/lib/enquiries');
+  const res = await updateEnquiryStatus(id, status);
+  revalidatePath('/admin');
+  return res;
+}
+
+export async function deleteLead(id: string) {
+  const isAuth = await checkAdminAuth();
+  if (!isAuth) return { success: false, error: 'Unauthorized' };
+  const { deleteEnquiry } = await import('@/lib/enquiries');
+  const res = await deleteEnquiry(id);
+  revalidatePath('/admin');
+  return res;
+}
+

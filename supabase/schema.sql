@@ -1,6 +1,34 @@
--- Cocoqube Blog Table Schema for Supabase
--- Copy and paste this directly into your Supabase Dashboard -> SQL Editor -> Run
+-- ========================================================
+-- 1. Client Enquiries & RFQ Table
+-- ========================================================
+create table if not exists enquiries (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  form_type text not null default 'contact',
+  name text not null,
+  company text,
+  phone text,
+  email text,
+  city text,
+  country text,
+  product text,
+  quantity text,
+  details jsonb default '{}'::jsonb,
+  status text not null default 'new',
+  notes text
+);
 
+alter table enquiries enable row level security;
+
+drop policy if exists "Enable all for enquiries" on enquiries;
+create policy "Enable all for enquiries" on enquiries
+  for all
+  using (true)
+  with check (true);
+
+-- ========================================================
+-- 2. Cocoqube Blog Table Schema
+-- ========================================================
 create table if not exists blogs (
   id uuid primary key default gen_random_uuid(),
   slug text unique not null,
