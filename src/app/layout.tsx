@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SiteInteractivity from "@/components/SiteInteractivity";
+import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -47,6 +48,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <WhatsAppFloat />
         <SiteInteractivity />
       </body>
     </html>
