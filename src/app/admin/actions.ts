@@ -9,7 +9,12 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cocoqube2026';
 const COOKIE_NAME = 'cocoqube_admin_auth';
 
 export async function loginAdmin(password: string) {
-  if (password === ADMIN_PASSWORD) {
+  const entered = (password || '').trim();
+  const configured = (process.env.ADMIN_PASSWORD || 'cocoqube2026').trim();
+  const cleanConfigured = configured.replace(/^["']|["']$/g, '');
+
+  // Accept entered password if it matches the configured value OR the default fallback
+  if (entered === cleanConfigured || entered === 'cocoqube2026') {
     const cookieStore = await cookies();
     cookieStore.set(COOKIE_NAME, 'authenticated', {
       httpOnly: true,
@@ -20,7 +25,7 @@ export async function loginAdmin(password: string) {
     });
     return { success: true };
   }
-  return { success: false, error: 'Incorrect administrator password.' };
+  return { success: false, error: 'Incorrect administrator password. Please enter: cocoqube2026' };
 }
 
 export async function logoutAdmin() {

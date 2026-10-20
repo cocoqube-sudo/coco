@@ -6,6 +6,7 @@ import { loginAdmin } from './actions';
 
 export default function AdminLogin() {
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -42,15 +43,37 @@ export default function AdminLogin() {
         <form onSubmit={handleLogin}>
           <div className="field" style={{ marginBottom: '1.4rem' }}>
             <label htmlFor="admin-pass">Admin Password</label>
-            <input
-              id="admin-pass"
-              type="password"
-              placeholder="Enter password (default: cocoqube2026)"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoFocus
-            />
+            <div style={{ position: 'relative' }}>
+              <input
+                id="admin-pass"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Enter password (default: cocoqube2026)"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoFocus
+                style={{ paddingRight: '3.5rem' }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: 'absolute',
+                  right: '0.6rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'transparent',
+                  border: 0,
+                  cursor: 'pointer',
+                  fontSize: '.82rem',
+                  fontWeight: 600,
+                  color: 'var(--forest)',
+                  padding: '.3rem',
+                }}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
+            </div>
           </div>
 
           <button
