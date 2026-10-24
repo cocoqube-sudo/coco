@@ -84,12 +84,6 @@ export default function Navbar() {
             Resources
           </Link>
           <Link
-            href="/about"
-            aria-current={pathname === '/about' ? 'page' : undefined}
-          >
-            About
-          </Link>
-          <Link
             href="/contact"
             aria-current={pathname === '/contact' ? 'page' : undefined}
           >

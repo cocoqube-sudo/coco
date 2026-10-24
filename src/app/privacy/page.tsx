@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Cocoqube",
   description: "How the Cocoqube website handles enquiry information, including what is collected, what is not stored and how to contact us about it.",
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Privacy Policy | Cocoqube",
     description: "How the Cocoqube website handles enquiry information, including what is collected, what is not stored and how to contact us about it.",

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us - B2B Sourcing Partner | Cocoqube",
   description: "Cocoqube is a Bengaluru exporter and wholesale sourcing partner for coir products. See how we work with manufacturing partners and what we claim.",
+  robots: { index: false, follow: true },
   openGraph: {
     title: "About Us - B2B Sourcing Partner | Cocoqube",
     description: "Cocoqube is a Bengaluru exporter and wholesale sourcing partner for coir products. See how we work with manufacturing partners and what we claim.",

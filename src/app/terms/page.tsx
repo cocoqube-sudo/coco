@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Use | Cocoqube",
   description: "Terms for using the Cocoqube website and for the product and specification information provided on it, including how quotes and specifications apply.",
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Terms of Use | Cocoqube",
     description: "Terms for using the Cocoqube website and for the product and specification information provided on it, including how quotes and specifications apply.",
