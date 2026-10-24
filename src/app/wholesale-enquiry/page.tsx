@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Submit an Indian wholesale enquiry for coir pots, liners, mulch discs, poles and coco peat. Share product, quantity and delivery pincode for a quote.",
     images: [{ url: "https://cocoqube.com/images/og/wholesale-enquiry.jpg" }],
   },
-  alternates: { canonical: "https://cocoqube.com/wholesale-enquiry.html" },
+  alternates: { canonical: "https://cocoqube.com/wholesale-enquiry" },
 };
 
 const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Wholesale enquiry"}]}];

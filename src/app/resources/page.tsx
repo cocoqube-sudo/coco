@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Practical buyer guides and technical blog articles on coco peat EC, buffering chemistry, AFP porosity, RFQ checklists, and export logistics from Cocoqube.",
     images: [{ url: "https://cocoqube.com/images/og/resources.jpg" }],
   },
-  alternates: { canonical: "https://cocoqube.com/resources.html" },
+  alternates: { canonical: "https://cocoqube.com/resources" },
 };
 
 export default async function ResourcesPage() {

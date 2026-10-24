@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Terms for using the Cocoqube website and for the product and specification information provided on it, including how quotes and specifications apply.",
     images: [{ url: "https://cocoqube.com/images/og/terms.jpg" }],
   },
-  alternates: { canonical: "https://cocoqube.com/terms.html" },
+  alternates: { canonical: "https://cocoqube.com/terms" },
 };
 
 const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Terms"}]}];

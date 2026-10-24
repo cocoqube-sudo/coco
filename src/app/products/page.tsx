@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Browse coco peat blocks, basket liners, pots and seedling cups, hanging sets, mulch discs, support poles, mats, felt and propagation coins from Cocoqube.",
     images: [{ url: "https://cocoqube.com/images/og/products.jpg" }],
   },
-  alternates: { canonical: "https://cocoqube.com/products.html" },
+  alternates: { canonical: "https://cocoqube.com/products" },
 };
 
 const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Coir products"}]}];

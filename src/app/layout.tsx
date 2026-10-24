@@ -12,7 +12,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Coco Peat and Coir Supplier in Bengaluru | Cocoqube",
+  metadataBase: new URL("https://cocoqube.com"),
+  title: {
+    default: "Cocoqube | Coco Peat & Coir Products Supplier Bengaluru, India",
+    template: "%s | Cocoqube",
+  },
   description: "Bengaluru supplier of coco peat and coir products for growers, nurseries, garden brands and importers, quoted by grade and spec, with export from India.",
   icons: {
     icon: [
@@ -22,15 +26,19 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Coco Peat and Coir Supplier in Bengaluru | Cocoqube",
+    type: "website",
+    locale: "en_US",
+    url: "https://cocoqube.com",
+    siteName: "Cocoqube",
+    title: "Cocoqube | Coco Peat & Coir Products Supplier Bengaluru, India",
     description: "Bengaluru supplier of coco peat and coir products for growers, nurseries, garden brands and importers, quoted by grade and spec, with export from India.",
-    images: [{ url: "https://cocoqube.com/images/og/index.jpg" }],
+    images: [{ url: "/images/og/index.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Coco Peat and Coir Supplier in Bengaluru | Cocoqube",
+    title: "Cocoqube | Coco Peat & Coir Products Supplier Bengaluru, India",
     description: "Bengaluru supplier of coco peat and coir products for growers, nurseries, garden brands and importers, quoted by grade and spec, with export from India.",
-    images: ["https://cocoqube.com/images/og/index.jpg"],
+    images: ["/images/og/index.jpg"],
   },
 };
 

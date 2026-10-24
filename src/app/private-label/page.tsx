@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Launch a private-label coir range with approved samples, artwork control, pack plans and pre-dispatch checks across pots, liners, discs and coco peat.",
     images: [{ url: "https://cocoqube.com/images/og/private-label.jpg" }],
   },
-  alternates: { canonical: "https://cocoqube.com/private-label.html" },
+  alternates: { canonical: "https://cocoqube.com/private-label" },
 };
 
 const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Private label"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the minimum for a private-label run?","acceptedAnswer":{"@type":"Answer","text":"Production MOQs are set by the manufacturing partner and confirmed before we accept artwork or setup fees. Standard-carton and custom minimums are different."}},{"@type":"Question","name":"Who owns artwork and tooling?","acceptedAnswer":{"@type":"Answer","text":"Ownership, permitted use and any exclusivity are agreed in writing before work starts. Exclusivity must be economically supported and may need legal review."}},{"@type":"Question","name":"Can you handle barcodes and labels?","acceptedAnswer":{"@type":"Answer","text":"We coordinate label content and pack plans with your approved artwork. Barcode ownership and destination label rules are confirmed per market."}}]}];

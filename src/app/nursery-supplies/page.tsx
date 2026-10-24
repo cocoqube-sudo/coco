@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Wholesale coir pots, basket liners, poles, mulch discs and coco peat for nurseries and garden centres in Bengaluru, Karnataka, Andhra Pradesh and Telangana.",
     images: [{ url: "https://cocoqube.com/images/og/nursery-supplies.jpg" }],
   },
-  alternates: { canonical: "https://cocoqube.com/nursery-supplies.html" },
+  alternates: { canonical: "https://cocoqube.com/nursery-supplies" },
 };
 
 const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Nursery supply"}]}];

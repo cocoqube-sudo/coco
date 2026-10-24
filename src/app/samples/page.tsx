@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Order a paid sample kit to test fit, handling and specification before a bulk order. Eligible sample value is credited on a qualifying first order.",
     images: [{ url: "https://cocoqube.com/images/og/samples.jpg" }],
   },
-  alternates: { canonical: "https://cocoqube.com/samples.html" },
+  alternates: { canonical: "https://cocoqube.com/samples" },
 };
 
 const jsonLdData = [{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cocoqube.com/"},{"@type":"ListItem","position":2,"name":"Samples"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a sample cost?","acceptedAnswer":{"@type":"Answer","text":"Sample product, packing and courier are charged at a stated amount in your quote. Export courier depends on destination and is quoted per lane."}},{"@type":"Question","name":"Is the sample cost credited?","acceptedAnswer":{"@type":"Answer","text":"Eligible sample product value can be credited against your first qualifying order. The credit is capped at 1 percent of the order value, redeemable within 30 days, and excludes courier unless agreed in writing."}},{"@type":"Question","name":"Why not free samples?","acceptedAnswer":{"@type":"Answer","text":"A sample without an evaluation date is a marketing cost, not an opportunity. A paid sample with a written test and review date gives both sides a clear result."}}]}];
